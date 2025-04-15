@@ -9,11 +9,13 @@ $rememberedEmail = $_COOKIE['remembered_email'] ?? '';
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
+
 <body>
   <div class="container">
     <h2>Login</h2>
@@ -30,7 +32,8 @@ $rememberedEmail = $_COOKIE['remembered_email'] ?? '';
       <input type="password" name="senha" required>
 
       <label>
-        <input type="checkbox" name="lembrar" value="1" <?php echo $rememberedEmail ? 'checked' : ''; ?>>
+        <input type="checkbox" name="lembrar" value="1"
+        <?php if (!empty($_COOKIE['remembered_email']) && !isset($_POST['email'])) echo 'checked'; ?>>
         Lembrar e-mail
       </label><br><br>
 
@@ -42,4 +45,5 @@ $rememberedEmail = $_COOKIE['remembered_email'] ?? '';
     </p>
   </div>
 </body>
+
 </html>

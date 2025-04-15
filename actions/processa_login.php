@@ -26,9 +26,9 @@ Sessao::set('nome', $usuario->getNome());
 Sessao::set('email', $usuario->getEmail());
 
 if ($lembrar) {
-    setcookie('remembered_email', $email, time() + (86400 * 30));
+    setcookie('remembered_email', $email, time() + (86400 * 30), '/');
 } else {
-    setcookie('remembered_email', '', time() - 3600);
+    setcookie('remembered_email', '', time() - 3600, '/');
 }
 
 header('Location: ../views/dashboard.php');
